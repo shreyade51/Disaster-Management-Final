@@ -1,0 +1,161 @@
+{% extends 'base.html' %} {% block sidebar %}
+<div id="sidebar-menu">
+  <ul class="metismenu list-unstyled" id="side-menu">
+    <li class="menu-title">Main</li>
+
+    <li>
+      <a href="{% url 'admindashboard' %}" class="waves-effect">
+        <i class="ti-home"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'adminvolunteers' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Volunteers</span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'adminnewdisaster' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>New Disaster</span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'admintasks' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Tasks</span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'adminnewtask' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>New Task</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'adminlocation' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Locations</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'admincontributors' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Contributors</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'adminresources' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Resources</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'adminaddlocation' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>New Location</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'adminmap' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Map</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'assign_resources' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Assign Resources</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'assigned_resources' %}" class="waves-effect">
+        <i class="ti-calendar"></i>
+        <span>Assigned Resources</span>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %} {% block content %}
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <!-- start page title -->
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h6 class="page-title">New Task</h6>
+          </div>
+        </div>
+      </div>
+      <!-- end page title -->
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <form action="" method="post">
+                {% csrf_token %}
+
+                <div class="row mb-3">
+                  <label for="type" class="col-sm-2 col-form-label"
+                    >Disaster Name</label
+                  >
+                  <div class="col-sm-10">
+                    <select class="form-control" name="type" id="type" required>
+                      {% for disaster in disasters %}
+                      <option value="{{ disaster.id }}">
+                        {{ disaster.name }}
+                      </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="name" class="col-sm-2 col-form-label">Task</label>
+                  <div class="col-sm-10">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="name"
+                      id="example-text-input"
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-10">
+                    <button
+                      type="submit"
+                      class="btn btn-primary waves-effect waves-light"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                <!-- end row -->
+              </form>
+            </div>
+            <!-- end cardbody -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- End Page-content -->
+</div>
+{% endblock %}

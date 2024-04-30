@@ -1,0 +1,321 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Register 2 | Veltrix - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'disaster/assets/images/favicon.ico' %}">
+
+    <!-- Bootstrap Css -->
+    <link href="{% static 'disaster/assets/css/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="{% static 'disaster/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="{% static 'disaster/assets/css/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css">
+
+</head>
+
+<body >
+    <!-- Begin page -->
+    
+  <div class="account-pages my-5 pt-5">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-8 col-lg-6 col-xl-4">
+                  <div class="card overflow-hidden">
+                      <div class="bg-primary">
+                          <div class="text-primary text-center p-4">
+                              <h5 class="text-white font-size-20">Free Register</h5>
+                              <p class="text-white-50">Get your free Veltrix account now.</p>
+                              <a href="index.html" class="logo logo-admin">
+                                  <img src="assets/images/logo-sm.png" height="24" alt="logo">
+                              </a>
+                          </div>
+                      </div>
+
+                      <div class="card-body p-4">
+                          <div class="p-3">
+                            <form class="mt-4" action="" method="post">
+                              {% csrf_token %}
+                                <div class="mb-3">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input type="email" class="form-control" name="email" id="useremail" placeholder="Enter email">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="user">Username</label>
+                                    <input type="text" class="form-control" name="user" id="username" placeholder="Enter username">
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="pass">Password</label>
+                                    <input type="password" class="form-control" name="pass" id="userpassword" placeholder="Enter password">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="pass2">Confirm password</label>
+                                    <input type="password" class="form-control" id="userpassword" name="pass2" placeholder="Enter password">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="name">Name</label>
+                                    <input type="text" class="form-control" id="userpassword" name="name" placeholder="Enter password">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="loc">Location:</label>
+                                    <select  class="form-control" name="loc" id="loc" required>
+                                        {% for Location in locations %}
+                                            <option value="{{ Location.id }}">{{ Location }}</option>  
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="mb-3"></div>
+                                        <label class="form-label" for="dob">Date of Birth:</label>
+                                        <input  class="form-control" id="dob" type="date" name="dob" value="" required>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="col-12 text-end">
+                                        <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Register</button>
+                                    </div>
+                                </div>
+
+
+
+                                
+
+                            </form>
+
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-5 text-center">
+                        <p>Already have an account ? <a href="{% url 'account_login' %}" class="fw-medium text-primary"> Login </a> </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'disaster/assets/libs/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'disaster/assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'disaster/assets/libs/metismenu/metisMenu.min.js' %}"></script>
+    <script src="{% static 'disaster/assets/libs/simplebar/simplebar.min.js' %}"></script>
+    <script src="{% static 'disaster/assets/libs/node-waves/waves.min.js' %}"></script>
+
+
+    <script>
+        !(function (t) {
+"use strict";
+function e() {
+for (
+  var e = document
+      .getElementById("topnav-menu-content")
+      .getElementsByTagName("a"),
+    t = 0,
+    a = e.length;
+  t < a;
+  t++
+)
+  "nav-item dropdown active" === e[t].parentElement.getAttribute("class") &&
+    (e[t].parentElement.classList.remove("active"),
+    e[t].nextElementSibling.classList.remove("show"));
+}
+var a, n;
+function s(e) {
+1 == t("#light-mode-switch").prop("checked") && "light-mode-switch" === e
+  ? (t("html").removeAttr("dir"),
+    t("#dark-mode-switch").prop("checked", !1),
+    t("#rtl-mode-switch").prop("checked", !1),
+    t("#bootstrap-style").attr("href", "{% static 'disaster/assets/css/bootstrap.min.css' %}"),
+    t("#app-style").attr("href", "{% static 'disaster/assets/css/app.min.css' %}"),
+    document.body.setAttribute("data-bs-theme", "light"),
+    "light" == document.body.getAttribute("data-bs-theme") &&
+    "light" == document.body.getAttribute("data-topbar")
+      ? (document.body.setAttribute("data-topbar", "light"), (a = !0))
+      : "light" == document.body.getAttribute("data-bs-theme") &&
+        "dark" == document.body.getAttribute("data-topbar")
+      ? document.body.setAttribute("data-topbar", "dark")
+      : document.body.setAttribute("data-topbar", "light"),
+    sessionStorage.setItem("is_visited", "light-mode-switch"))
+  : 1 == t("#dark-mode-switch").prop("checked") && "dark-mode-switch" === e
+  ? (t("html").removeAttr("dir"),
+    t("#light-mode-switch").prop("checked", !1),
+    t("#rtl-mode-switch").prop("checked", !1),
+    t("#bootstrap-style").attr("href", "{% static 'disaster/assets/css/bootstrap.min.css' %}"),
+    t("#app-style").attr("href", "{% static 'disaster/assets/css/app.min.css' %}"),
+    document.body.setAttribute("data-bs-theme", "dark"),
+    document.body.setAttribute("data-topbar", "dark"),
+    sessionStorage.setItem("is_visited", "dark-mode-switch"))
+  : 1 == t("#rtl-mode-switch").prop("checked") &&
+    "rtl-mode-switch" === e &&
+    (t("#light-mode-switch").prop("checked", !1),
+    t("#dark-mode-switch").prop("checked", !1),
+    t("#bootstrap-style").attr("href", "{% static 'disaster/assets/css/bootstrap-rtl.min.css' %}"),
+    t("#app-style").attr("href", "{% static 'disaster/assets/css/app-rtl.min.css' %}"),
+    t("html").attr("dir", "rtl"),
+    document.body.setAttribute("data-bs-theme", "light"),
+    document.body.setAttribute("data-topbar", "light"),
+    sessionStorage.setItem("is_visited", "rtl-mode-switch"));
+}
+function o() {
+document.webkitIsFullScreen ||
+  document.mozFullScreen ||
+  document.msFullscreenElement ||
+  (console.log("pressed"), t("body").removeClass("fullscreen-enable"));
+}
+if (
+(t("#side-menu").metisMenu(),
+t("#vertical-menu-btn").on("click", function (e) {
+  e.preventDefault(),
+    t("body").toggleClass("sidebar-enable"),
+    992 <= t(window).width()
+      ? t("body").toggleClass("vertical-collpsed")
+      : t("body").removeClass("vertical-collpsed");
+}),
+t("#sidebar-menu a").each(function () {
+  var e = window.location.href.split(/[?#]/)[0];
+  this.href == e &&
+    (t(this).addClass("active"),
+    t(this).parent().addClass("mm-active"),
+    t(this).parent().parent().addClass("mm-show"),
+    t(this).parent().parent().prev().addClass("mm-active"),
+    t(this).parent().parent().parent().addClass("mm-active"),
+    t(this).parent().parent().parent().parent().addClass("mm-show"),
+    t(this)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .addClass("mm-active"));
+}),
+t(".navbar-nav a").each(function () {
+  var e = window.location.href.split(/[?#]/)[0];
+  this.href == e &&
+    (t(this).addClass("active"),
+    t(this).parent().addClass("active"),
+    t(this).parent().parent().addClass("active"),
+    t(this).parent().parent().parent().addClass("active"),
+    t(this).parent().parent().parent().parent().addClass("active"),
+    t(this)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .addClass("active"));
+}),
+t(document).ready(function () {
+  var e;
+  0 < t("#sidebar-menu").length &&
+    0 < t("#sidebar-menu .mm-active .active").length &&
+    300 < (e = t("#sidebar-menu .mm-active .active").offset().top) &&
+    ((e -= 300),
+    t(".vertical-menu .simplebar-content-wrapper").animate(
+      { scrollTop: e },
+      "slow"
+    ));
+}),
+t('[data-bs-toggle="fullscreen"]').on("click", function (e) {
+  e.preventDefault(),
+    t("body").toggleClass("fullscreen-enable"),
+    document.fullscreenElement ||
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement
+      ? document.cancelFullScreen
+        ? document.cancelFullScreen()
+        : document.mozCancelFullScreen
+        ? document.mozCancelFullScreen()
+        : document.webkitCancelFullScreen &&
+          document.webkitCancelFullScreen()
+      : document.documentElement.requestFullscreen
+      ? document.documentElement.requestFullscreen()
+      : document.documentElement.mozRequestFullScreen
+      ? document.documentElement.mozRequestFullScreen()
+      : document.documentElement.webkitRequestFullscreen &&
+        document.documentElement.webkitRequestFullscreen(
+          Element.ALLOW_KEYBOARD_INPUT
+        );
+}),
+document.addEventListener("fullscreenchange", o),
+document.addEventListener("webkitfullscreenchange", o),
+document.addEventListener("mozfullscreenchange", o),
+t(".right-bar-toggle").on("click", function (e) {
+  t("body").toggleClass("right-bar-enabled");
+}),
+t(document).on("click", "body", function (e) {
+  0 < t(e.target).closest(".right-bar-toggle, .right-bar").length ||
+    t("body").removeClass("right-bar-enabled");
+}),
+document.getElementById("topnav-menu-content"))
+) {
+for (
+  var r = document
+      .getElementById("topnav-menu-content")
+      .getElementsByTagName("a"),
+    c = 0,
+    d = r.length;
+  c < d;
+  c++
+)
+  r[c].onclick = function (e) {
+    "#" === e.target.getAttribute("href") &&
+      (e.target.parentElement.classList.toggle("active"),
+      e.target.nextElementSibling.classList.toggle("show"));
+  };
+window.addEventListener("resize", e);
+}
+t(function () {
+t('[data-bs-toggle="tooltip"]').tooltip();
+}),
+t(function () {
+  t('[data-bs-toggle="popover"]').popover();
+}),
+window.sessionStorage &&
+  ((n = sessionStorage.getItem("is_visited"))
+    ? (t(".right-bar input:checkbox").prop("checked", !1),
+      t("#" + n).prop("checked", !0),
+      s(n))
+    : sessionStorage.setItem("is_visited", "light-mode-switch")),
+t("#light-mode-switch, #dark-mode-switch, #rtl-mode-switch").on(
+  "change",
+  function (e) {
+    s(e.target.id),
+      1 ==
+        (a =
+          "light" == document.body.getAttribute("data-bs-theme") &&
+          "light" == document.body.getAttribute("data-topbar")
+            ? !0
+            : a) &&
+        "light" == document.body.getAttribute("data-bs-theme") &&
+        document.body.setAttribute("data-topbar", "light");
+  }
+),
+t(window).on("load", function () {
+  t("#status").fadeOut(), t("#preloader").delay(350).fadeOut("slow");
+}),
+Waves.init();
+})(jQuery);
+
+    </script>
+
+</body>
+
+</html>

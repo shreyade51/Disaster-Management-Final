@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<div id="sidebar-menu">
+
+    <ul class="metismenu list-unstyled" id="side-menu">
+        <li class="menu-title">Main</li>
+
+        <li>
+            <a href="{% url 'volunteerdashboard' %}" class="waves-effect">
+                <i class="ti-home"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h6 class="page-title">Dashboard</h6>
+                       
+                    </div>
+
+                </div>
+            </div>
+            <!-- end page title -->
+
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if tasks %}
+                            <h1>Tasks</h1>
+                            <div class="table-rep-plugin">
+                                <div class="table-responsive mb-0" data-bs-pattern="priority-columns">
+                                    <table id="tech-companies-1" class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            
+                                            <th data-priority="1">Name</th>
+                                            <th data-priority="3">Disaster</th>
+                                            <th data-priority="1">Status</th>
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for task in tasks %}
+                                            <tr>
+                                                <td>{{ task.name }}</td>
+                                                <td>{{ task.disaster.name }}</td>
+                                                <td>{{ task.status }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            {% endif %}
+
+                            <h1>Disasters</h1>
+                            <div class="table-rep-plugin">
+                                <div class="table-responsive mb-0" data-bs-pattern="priority-columns">
+                                    <table id="tech-companies-1" class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            
+                                            <th data-priority="1">Name</th>
+                                            <th data-priority="3">Location</th>
+                                            <th data-priority="1">Disaster type</th>
+                                            <th data-priority="1">Volunteer</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for disaster in disasters %}
+                                            <tr>
+                                                <td>{{ disaster.name }}</td>
+                                                <td>{{ disaster.location.name }}</td>
+                                                <td>{{ disaster.disaster.name }}</td>
+                                                <td>{{ disaster.reporttime }}</td>
+                                                <td>
+                                                    <form action="" method="post">
+                                                        {% csrf_token %}
+                                                        <input type="text" name="dis" value="{{disaster.id}}" hidden id="">
+                                                        <input type="submit" value="Join" {% if isassigned %} disabled {% endif %} d>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+            
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+    
+    
+    
+
+
+</div>
+
+
+{% endblock %}

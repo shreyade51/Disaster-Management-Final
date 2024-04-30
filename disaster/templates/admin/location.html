@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<div id="sidebar-menu">
+
+    <ul class="metismenu list-unstyled" id="side-menu">
+        <li class="menu-title">Main</li>
+
+        <li>
+            <a href="{% url 'admindashboard' %}" class="waves-effect">
+                <i class="ti-home"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'adminvolunteers' %}" class= "waves-effect">
+                <i class="ti-calendar"></i>
+                <span>Volunteers</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'adminnewdisaster' %}" class=" waves-effect">
+                <i class="ti-calendar"></i>
+                <span>New Disaster</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'admintasks' %}" class=" waves-effect">
+                <i class="ti-calendar"></i>
+                <span>Tasks</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'adminnewtask' %}" class=" waves-effect">
+                <i class="ti-calendar"></i>
+                <span>New Task</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'adminlocation' %}" class=" waves-effect">
+                <i class="ti-calendar"></i>
+                <span>Locations</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'adminaddlocation' %}" class=" waves-effect">
+                <i class="ti-calendar"></i>
+                <span>New Location</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'adminmap' %}" class="waves-effect">
+              <i class="ti-calendar"></i>
+              <span>Map</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'admincontributors' %}" class="waves-effect">
+              <i class="ti-calendar"></i>
+              <span>Contributors</span>
+            </a>
+          </li>
+      
+          <li>
+            <a href="{% url 'adminresources' %}" class="waves-effect">
+              <i class="ti-calendar"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'assign_resources' %}" class="waves-effect">
+              <i class="ti-calendar"></i>
+              <span>Assign Resources</span>
+            </a>
+          </li>
+      
+          <li>
+            <a href="{% url 'assigned_resources' %}" class="waves-effect">
+              <i class="ti-calendar"></i>
+              <span>Assigned Resources</span>
+            </a>
+          </li>
+
+    </ul>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h6 class="page-title">Admin Dashboard</h6>
+                       
+                    </div>
+
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <h1>Location</h1>
+                            <div class="table-rep-plugin">
+                                <div class="table-responsive mb-0" data-bs-pattern="priority-columns">
+                                    <table id="tech-companies-1" class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            
+                                            <th data-priority="1">ID</th>
+                                            <th data-priority="3">Location</th>
+                                            
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for location in locations %}
+                                            <tr>
+                                                <td>{{ location.id }}</td>
+                                                <td>{{ location.name }}</td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            
+                        
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div> <!-- end col -->
+</div> <!-- end row -->
+
+</div> <!-- container-fluid -->
+</div>
+<!-- End Page-content -->
+
+
+
+
+
+</div>
+
+{% endblock %}

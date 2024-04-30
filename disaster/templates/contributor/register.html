@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<div id="sidebar-menu">
+
+    <ul class="metismenu list-unstyled" id="side-menu">
+        <li class="menu-title">Main</li>
+
+        <li>
+            <a href="{% url 'contributor' %}" class="waves-effect">
+                <i class="ti-home"></i>
+                <span>Register</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'contributor_resource' %}" class="waves-effect">
+                <i class="ti-home"></i>
+                <span>Resource</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <!-- start page title -->
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h6 class="page-title">Register Contributor</h6>
+          </div>
+        </div>
+      </div>
+      <!-- end page title -->
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+                {% if info %}
+                <p>{{info}}</p>
+                {% endif %}
+              <form action="" method="post">
+                {% csrf_token %}
+
+
+                <div class="row mb-3">
+                  <label for="name" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="name"
+                      id="example-text-input"
+                    />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="desc"
+                        id="example-text-input"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Id Proof</label>
+                    <div class="col-sm-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="id_proof"
+                        id="example-text-input"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Business</label>
+                    <div class="col-sm-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="buss"
+                        id="example-text-input"
+                      />
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="col-sm-10">
+                    <button
+                      type="submit"
+                      class="btn btn-primary waves-effect waves-light"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                <!-- end row -->
+              </form>
+            </div>
+            <!-- end cardbody -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- End Page-content -->
+</div>
+{% endblock %}
